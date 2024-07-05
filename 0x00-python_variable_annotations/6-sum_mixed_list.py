@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-from typing import List
+from typing import List, Union
 
-def sum_mixed_list(mxd_lst:List[int | float]) -> float:
-    return sum(mxd_list)
+def sum_mixed_list(mxd_lst: List[Union[int, float]]) -> float:
+    '''Computes the sum of a list of integers and floating-point numbers.
+    '''
+    return float(sum(mxd_lst))
