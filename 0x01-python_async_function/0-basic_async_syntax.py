@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-
-import asyncio
+""" define caroutine """
 import random
-# asynchronous coroutine that take a int argument
+import asyncio
 
-asyncio def wait_random(max_delay:int = 10) -> float:
-    fleet = random.uniform(0, max_delay)
-    await.asyncio.sleep(fleet)
-    return fleet
+
+async def wait_random(max_delay: int = 10) -> float:
+    """ asynchronous coroutine """
+    r = random.uniform(0, max_delay)
+    await asyncio.sleep(r)
+    return r

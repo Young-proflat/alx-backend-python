@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-
-import asyncio
+""" define fn execute multiple caroutines """
 from typing import List
+import asyncio
+wait_random = __import__('0-basic_async_syntax').wait_random
 
-wait_n = __import__('1-concurrent_coroutines').wait_n
 
-asyncio def wait_n(n:int, max_delay:int) -> List[float]:
-    
-    wait_times = await asyncio.gather(*tuple(map(lambda_: wait_random(max_delay), range(n)))
-            )
-    return sorted(wait_times)
+async def wait_n(n: int, max_delay: int) -> List[float]:
+    """ return the list of all the delays (float values). """
+    tasks = [wait_random(max_delay) for _ in range(n)]
+    delays = [await task for task in asyncio.as_completed(tasks)]
+    return delays
